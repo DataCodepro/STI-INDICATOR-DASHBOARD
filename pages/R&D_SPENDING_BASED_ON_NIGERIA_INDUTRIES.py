@@ -27,5 +27,5 @@ def fun():
             
 st.set_page_config(page_title="R&D SPENDING", page_icon="📈")
 st.header(
-        """NIGERIAN INDUSTRIES SPENDING ON R&D""")
+        """HOW MUCH ARE NIGERIAN INDUSTRIES SPENDING ON R&D""")
 fun()   
