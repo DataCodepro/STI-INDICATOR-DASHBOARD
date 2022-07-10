@@ -57,105 +57,50 @@ def run():
             Total		728	631	1,359 )
         """
         )
-    c1, c2, c3 = st.columns([7,7,1])
-    c4, c5 = st.columns([9,1])
-    df01 = pd.read_excel("output tables.xlsx",sheet_name = 'Sheet9')
-    df01.fillna(' ',inplace=True)
-    df01.iloc[1:4,0] = 'R&D Funding'
-    df01.iloc[5:8,0] = 'Training'
-    df01.iloc[9:12,0] = 'Subsidies'
-    df01.iloc[13:16,0] = 'Tax Rebates'
-    df01.iloc[17:20,0] = 'Technical Support/Advice'
-    df01.iloc[21:24,0] = 'Infrastructur Support'
-    df01.iloc[25:28,0] = 'Loans And Grants'
-    df01.iloc[29:32,0] = 'Others'
-    fig1 = px.scatter(df01,x='OUTCOME',y='RESPONSE',size='RESPONSE', color='OUTCOME',hover_name='GOVT SUPPORT POLICY',size_max=100,animation_frame='GOVT SUPPORT POLICY')
-    fig1.update_layout(width =1000,height=600)
-    #st.plotly_chart(fig)
+    st.header('VARIOUS NIGERIAN SECTOR SPENDING ON R&D')
+    df = pd.read_spss('nigeria-innovation.sav')
+    df2 =df[['iexptotal','sector','service']]
+    df2.dropna(inplace=True)
+    df3 = df2.groupby('sector').apply(sum)
+    df3.reset_index(inplace=True)
+    df3.rename({'sector':'SECTORS','iexptotal':'R&D EXPENDITURE'},axis =1,inplace=True)
+    fig = px.scatter(df3, x = 'SECTORS',y = 'R&D EXPENDITURE',size = 'R&D EXPENDITURE',hover_name = 'SECTORS', size_max= 120,color='SECTORS')
+    fig.update_layout(height = 600,width =800,paper_bgcolor="#202A44",)
+    fig.show()
     
-    with c1:
+    st.plotly_chart(fig)
+    st.header('SHARE OF R&D EXPENDITURE ACCORDING TO THE AREA OF SERVICE')
+    df = pd.read_spss('nigeria-innovation.sav')
+    df2 =df[['iexptotal','sector','service']]
+    df2.dropna(inplace=True)
+    df3 = df2.groupby('service').apply(sum)
+    df3.reset_index(inplace=True)
+    df3.rename({'service':'SERVICE','iexptotal':'R&D EXPENDITURE'},axis =1,inplace=True)
+    
+    
+    # Use `hole` to create a donut-like pie chart
+    fig = go.Figure(data=[go.Pie(labels=df3['SERVICE'], values=df3['R&D EXPENDITURE'], hole=.6,name="R&D EXPENDITURE")])
+    fig.update_traces(hole=.6, hoverinfo="label+percent+name")
+
+    fig.update_layout(
+        # Add annotations in the center of the donut pies.
+        annotations=[dict(text='R&D EXPENDITURE',  font_size=10, showarrow=False)],height = 600,width =800,paper_bgcolor="#202A44")
+
         
-        fig = px.scatter(df01,x='OUTCOME',y='RESPONSE',size='RESPONSE', color='OUTCOME',hover_name='GOVT SUPPORT POLICY',size_max=100,animation_frame='GOVT SUPPORT POLICY')
-        fig.update_layout(width =500,height=500)
-        st.plotly_chart(fig)
-    with c2:
-        
-        df00 = pd.read_excel("output tables.xlsx",sheet_name = 'Sheet10')
-        df00.fillna(' ',inplace=True)
-        df00.drop('Unnamed: 3',axis=1,inplace=True)
-        df00.iloc[1:4,0] = 'Lack Of In-House Funds'
-        df00.iloc[5:8,0] = 'Lack Of External Financing'
-        df00.iloc[9:12,0] = 'High Costs Of Innovation'
-        df00.iloc[13:16,0] = 'Economic Risk'
-        df00.iloc[17:20,0] = 'Expensive Environment-Friendly R&D'
-        df00.iloc[21:24,0] = 'Lack Of Qualified Personnel'
-        df00.iloc[25:28,0] = 'Lack Of Tech Information'
-        df00.iloc[29:32,0] = 'Lack Of Market Information'
-        df00.iloc[33:36,0] = 'Difficult To Find Coop Partners'
-        df00.iloc[36:40,0] = 'Market Dominated By Large Ent'
-        df00.iloc[41:44,0] = 'Uncertain Demand'
-        df00.iloc[44:48,0] = 'Market Dominated By Foreign Substitutes'
-        df00.iloc[49:52,0] = 'Consumers Unwilling To Pay'
-        df00.iloc[53:56,0] = 'Imitation'
-        df00.iloc[57:60,0] = 'Poor Basic Infrastructure'
-        df00.iloc[61:64,0] = 'Inadequate Facilities'
-        df00.iloc[65:68,0] = 'No Need Due To Prior Innovation'
-        df00.iloc[69:72,0] = 'No Need Due To No Demand For Innovation'
-        df00.iloc[73:76,0] = 'Internal Organisational Rigidities'
-        df00.iloc[77:80,0] = 'Inflexible Regulations/Standards'
-        df00.iloc[81:84,0] = 'Limitation Of S&T Public Policies'
-        fig = px.bar(df00,x='OUTCOME',y='RESPONSE',color='OUTCOME',hover_name='FACTORS AFFECTING',animation_frame='FACTORS AFFECTING')
-        fig.update_layout(width =500,height=500)
-        st.plotly_chart(fig)
-    with c3:
-       
-        df02 = pd.read_excel("output tables.xlsx",sheet_name = 'Sheet5')
-        df02.iloc[1:4,0] = 'Internal'
-        df02.iloc[5:8,0] = 'Suppliers'
-        df02.iloc[9:12,0] = 'Customers'
-        df02.iloc[13:16,0] = 'Competitors'
-        df02.iloc[17:20,0] = 'Consultants, commercial labs or private R&D institutes'
-        df02.iloc[21:24,0] = 'Universities, other higher ed. institutions'
-        df02.iloc[25:28,0] = 'Public research institutes'
-        df02.iloc[29:32,0] = 'Conferences, fairs, exhibitions'
-        df02.iloc[33:36,0] = 'Journals, trade publications'
-        df02.iloc[36:40,0] = 'Professional, industry associations'
-        fig = px.scatter(df02,x='OUTCOME',y='RESPONSE',size='RESPONSE', color='OUTCOME',hover_name='INFO SOURCE',size_max=100,animation_frame='INFO SOURCE')
-        fig.update_layout(width =500,height=500)
-        st.plotly_chart(fig)
-    with c4:
-        waves = pd.read_excel('wave1.xlsx',sheet_name= 'Sheet1')
-        waves.dropna(inplace =True)
-        waves['RDSTAFF'].replace({' ':0},inplace =True)
-        waves = waves[(waves['RDSTAFF']!=0) &(waves['estab']!=0)]
-        waves = waves[['sector','year','turnover050607','RDSTAFF']]
-        df = waves.groupby('sector').apply(sum)
-        df.drop(['sector','year'],axis =1,inplace=True)
-        df.reset_index(inplace=True)
-        fig = px.scatter(df, y="turnover050607", x="RDSTAFF",size="turnover050607", color="sector",size_max=150)
-        fig.update_layout(width=700,height=500)
-        st.plotly_chart(fig)
-    with c5:
-        df = pd.read_spss('nigeria-innovation.sav')
-        df2 =df[['iexptotal','sector','service']]
-        df2.dropna(inplace=True)
-        df3 = df2.groupby('service').apply(sum)
-        df3.reset_index(inplace=True)
-        df3.rename({'service':'SERVICE','iexptotal':'R&D EXPENDITURE'},axis =1,inplace=True)
-       
-        
-        
-        # Use `hole` to create a donut-like pie chart
-        fig = go.Figure(data=[go.Pie(labels=df3['SERVICE'], values=df3['R&D EXPENDITURE'], hole=.6,name="R&D EXPENDITURE")])
-        fig.update_traces(hole=.6, hoverinfo="label+percent+name")
-        fig.update_layout(
-            # Add annotations in the center of the donut pies.
-            annotations=[dict(text='R&D EXPENDITURE',  font_size=10, showarrow=False)],height = 400,width =400)
-        
-            
-        st.plotly_chart(fig)
-  
-        
+    st.plotly_chart(fig)
+    st.header('THE EFFECT OF R&D STAFF ON TURNOVER')
+    waves = pd.read_excel('wave1.xlsx',sheet_name= 'Sheet1')
+    waves.dropna(inplace =True)
+    waves['RDSTAFF'].replace({' ':0},inplace =True)
+    waves = waves[(waves['RDSTAFF']!=0) &(waves['estab']!=0)]
+    waves = waves[['sector','year','turnover050607','RDSTAFF']]
+    df = waves.groupby('sector').apply(sum)
+    df.drop(['sector','year'],axis =1,inplace=True)
+    df.reset_index(inplace=True)
+    fig = px.scatter(df, y="turnover050607", x="RDSTAFF",size="turnover050607", color="sector",size_max=150)
+    fig.update_layout(width=800,height=500, paper_bgcolor="#202A44")
+    st.plotly_chart(fig)
+
 
 
 if __name__ == "__main__":
