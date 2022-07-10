@@ -67,7 +67,7 @@ def run():
         df3 = df2.groupby('sector').apply(sum)
         df3.reset_index(inplace=True)
         df3.rename({'sector':'SECTORS','iexptotal':'R&D EXPENDITURE'},axis =1,inplace=True)
-        fig = px.scatter(df3, x = 'SECTORS',y = 'R&D EXPENDITURE',size = 'R&D EXPENDITURE',hover_name = 'SECTORS', size_max= 120,color='SECTORS',title = 'VARIOUS NIGERIAN SECTOR SPENDING ON R&D')
+        fig = px.scatter(df3, x = 'SECTORS',y = 'R&D EXPENDITURE',size = 'R&D EXPENDITURE',hover_name = 'SECTORS', size_max= 120,color='SECTORS',title = 'HOW MUCH ARE NIGERIAN INDUSTRIES SPENDING ON R&D')
         fig.update_layout(width =800,height = 800,showlegend =False)
         fig.show()
         
