@@ -21,12 +21,10 @@ def fun():
     df02.iloc[33:36,0] = 'Journals, trade publications'
     df02.iloc[36:40,0] = 'Professional, industry associations'
     st.table(df02)
-    
-    fig = px.line(df02,x='OUTCOME',y ='RESPONSE',color ='INFO SOURCE')
-    fig.update_layout(width =1000,height=600)
-    st.plotly_chart(fig)
     fig = px.scatter(df02,x='OUTCOME',y='RESPONSE',size='RESPONSE', color='OUTCOME',hover_name='INFO SOURCE',size_max=100,animation_frame='INFO SOURCE')
-    fig.update_layout(width =1000,height=600)
+    fig.update_traces(hovertemplate =None)
+    fig.update_layout(width =1000,height=600,hovermode ='x unified',hoverlabel = dict(bgcolor = 'black',font_size =16,font_family = 'Rockwell'))
+    fig.update_layout(legend= dict(title_font_family = 'Rockwell',font_size =16))
     st.plotly_chart(fig)
 st.set_page_config(page_title="IMPORTANCE", page_icon="📈")
 st.header("IMPORTANCE OF INFORMATION SOURCES TO INNOVATION")
