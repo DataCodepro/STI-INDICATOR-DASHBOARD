@@ -38,7 +38,7 @@ def fun():
     fig.update_traces(hovertemplate =None)
     fig.update_layout(width =1000,height=600,hovermode ='x unified',hoverlabel = dict(bgcolor = 'black',font_size =16,font_family = 'Rockwell'))
     fig.update_layout(legend= dict(title_font_family = 'Rockwell',font_size =16))
-    fig.update_xaxes(title_font_family = 'Rockwell',font_size =16)
+    fig.update_xaxes(font_family = 'Rockwell',font_size =16)
     st.plotly_chart(fig)
     fig = px.scatter(df00,x='OUTCOME',y='RESPONSE',size='RESPONSE', color='OUTCOME',hover_name='FACTORS AFFECTING',size_max=100,animation_frame='FACTORS AFFECTING')
     fig.update_traces(hovertemplate =None)
