@@ -15,7 +15,7 @@ def fun():
     df3.rename({'sector':'SECTORS','iexptotal':'R&D EXPENDITURE'},axis =1,inplace=True)
     st.table(df3)
     
-    fig = px.scatter(df3, x = 'SECTORS',y = 'R&D EXPENDITURE',size = 'R&D EXPENDITURE',hover_name = 'SECTORS', size_max= 120,color='SECTORS')
+    fig = px.scatter(df3, x = 'SECTORS',y = 'R&D EXPENDITURE',size = 'R&D EXPENDITURE',hover_name = 'SECTORS', size_max= 120,color='SECTORS',labels={'x':'SECTORS','y':'R&D EXPENDITURE(BILLION NAIRA)'})
     fig.update_layout(height = 700,width =1000,paper_bgcolor="#202A44",)
     fig.show()
     
