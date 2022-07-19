@@ -69,7 +69,7 @@ def run():
         df3.rename({'sector':'SECTORS','iexptotal':'R&D EXPENDITURE (BILLION NAIRA)'},axis =1,inplace=True)
         fig = px.scatter(df3, x = 'SECTORS',y = 'R&D EXPENDITURE (BILLION NAIRA)',size = 'R&D EXPENDITURE (BILLION NAIRA)',hover_name = 'SECTORS', size_max= 120,color='SECTORS',title = 'HOW MUCH ARE NIGERIAN INDUSTRIES SPENDING ON R&D')
         fig.update_traces(hovertemplate =None)
-        fig.update_layout(width =800,height=800,hovermode ='x unified',hoverlabel = dict(bgcolor = 'black',font_size =16,font_family = 'Rockwel),showlegend =False)
+        fig.update_layout(width =800,height=800,hovermode ='x unified',hoverlabel = dict(bgcolor = 'black',font_size =16,font_family = 'Rockwel'),showlegend =False)
         fig.update_layout(legend= dict(title_font_family = 'Rockwell',font_size =16))
         st.plotly_chart(fig)
     with col2:
@@ -99,7 +99,7 @@ def run():
         df00.iloc[81:84,0] = 'Limitation Of S&T Public Policies'
         fig = px.line(df00,x='OUTCOME',y ='RESPONSE',color ='FACTORS AFFECTING',title ='FACTORS AFFECTING INNOVATION ACTIVITIES IN NIGERIAN INDUSTRIES')
         fig.update_traces(hovertemplate =None)
-        fig.update_layout(width =800,height=800,hovermode ='x unified',hoverlabel = dict(bgcolor = 'black',font_size =16,font_family = 'Rockwel),showlegend =False)
+        fig.update_layout(width =800,height=800,hovermode ='x unified',hoverlabel = dict(bgcolor = 'black',font_size =16,font_family = 'Rockwel'),showlegend =False)
         fig.update_layout(legend= dict(title_font_family = 'Rockwell',font_size =16))
         st.plotly_chart(fig)
     with col3:
@@ -115,7 +115,7 @@ def run():
         df01.iloc[29:32,0] = 'Others'
         fig = px.scatter(df01,x='OUTCOME',y='RESPONSE',size='RESPONSE', color='OUTCOME',hover_name='GOVT SUPPORT POLICY',size_max=100,animation_frame='GOVT SUPPORT POLICY',title = 'EFFECTS OF GOVERNMENT SUPPORT ON INNOVATION')
         fig.update_traces(hovertemplate =None)
-        fig.update_layout(width =800,height=800,hovermode ='x unified',hoverlabel = dict(bgcolor = 'black',font_size =16,font_family = 'Rockwel),showlegend =False)
+        fig.update_layout(width =800,height=800,hovermode ='x unified',hoverlabel = dict(bgcolor = 'black',font_size =16,font_family = 'Rockwel'),showlegend =False)
         fig.update_layout(legend= dict(title_font_family = 'Rockwell',font_size =16))
         st.plotly_chart(fig)
         
@@ -150,7 +150,7 @@ def run():
         df.rename({'turnover050607':'TURNOVER (TRILLION NAIRA)','RDSTAFF':'R&DSTAFF'})
         fig = px.scatter(df, y="TURNOVER (TRILLION NAIRA)	", x="RDSTAFF",size="TURNOVER (TRILLION NAIRA)	", color="sector",size_max=150,title='THE EFFECT OF R&D STAFF ON TURNOVER')
         fig.update_traces(hovertemplate =None)
-        fig.update_layout(width =800,height=800,hovermode ='x unified',hoverlabel = dict(bgcolor = 'black',font_size =16,font_family = 'Rockwel),showlegend =False)
+        fig.update_layout(width =800,height=800,hovermode ='x unified',hoverlabel = dict(bgcolor = 'black',font_size =16,font_family = 'Rockwel'),showlegend =False)
         fig.update_layout(legend= dict(title_font_family = 'Rockwell',font_size =16))
     with col6:
         df02 = pd.read_excel("output tables.xlsx",sheet_name = 'Sheet5')
@@ -166,7 +166,7 @@ def run():
         df02.iloc[36:40,0] = 'Professional, industry associations'
         fig = px.line(df02,x='OUTCOME',y ='RESPONSE',color ='INFO SOURCE',title = 'IMPORTANCE OF INFORMATION SOURCES TO INNOVATION')
         fig.update_traces(hovertemplate =None)
-        fig.update_layout(width =800,height=800,hovermode ='x unified',hoverlabel = dict(bgcolor = 'black',font_size =16,font_family = 'Rockwel),showlegend =False)
+        fig.update_layout(width =800,height=800,hovermode ='x unified',hoverlabel = dict(bgcolor = 'black',font_size =16,font_family = 'Rockwel'),showlegend =False)
         fig.update_layout(legend= dict(title_font_family = 'Rockwell',font_size =16))
         st.plotly_chart(fig)
 
