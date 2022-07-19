@@ -36,11 +36,11 @@ def fun():
     st.table(df00)
     fig = px.line(df00,x='OUTCOME',y ='RESPONSE',color ='FACTORS AFFECTING')
     fig.update_traces(hovertemplate =None)
-    fig.update_layout(width =1000,height=600,hovermode ='x unified')
+    fig.update_layout(width =1000,height=600,hovermode ='x unified',hoverlabel = dict(bgcolor = 'white',font_size =16,font_family = 'Rockwell))
     st.plotly_chart(fig)
     fig = px.scatter(df00,x='OUTCOME',y='RESPONSE',size='RESPONSE', color='OUTCOME',hover_name='FACTORS AFFECTING',size_max=100,animation_frame='FACTORS AFFECTING')
     fig.update_traces(hovertemplate =None)
-    fig.update_layout(width =1000,height=600,hovermode ='x unified')
+    fig.update_layout(width =1000,height=600,hovermode ='x unified',hoverlabel = dict(bgcolor = 'white',font_size =16,font_family = 'Rockwell))
     st.plotly_chart(fig)
 
        
