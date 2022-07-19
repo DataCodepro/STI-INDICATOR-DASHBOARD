@@ -23,8 +23,8 @@ def fun():
 
     fig.update_layout(
         # Add annotations in the center of the donut pies.
-        annotations=[dict(text='R&D EXPENDITURE',  font_size=10, showarrow=False)],height = 600,width =800,paper_bgcolor="#202A44")
-    fig.show()
+        annotations=[dict(text='R&D EXPENDITURE',  font_size=15, showarrow=False)],height = 600,width =800,paper_bgcolor="#202A44")
+    fig.update_layout(legend= dict(title_font_family = 'Rockwell',font_size =16))
         
     st.plotly_chart(fig)
 
