@@ -20,6 +20,7 @@ def fun():
     df.rename({'turnover050607':'TURNOVER', 'RDSTAFF':'R&DSTAFF'},axis =1,inplace=True)
     st.table(df)
     fig = px.scatter(df, y="TURNOVER", x="R&DSTAFF",size="TURNOVER", color="sector",size_max=150)
+    fig.update_traces(hovertemplate =None)
     fig.update_layout(width=1000,height=500, paper_bgcolor="#202A44")
     st.plotly_chart(fig)
 st.set_page_config(page_title="EFFECT3", page_icon="📈")
