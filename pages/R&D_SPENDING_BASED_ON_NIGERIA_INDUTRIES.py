@@ -12,10 +12,10 @@ def fun():
     df2.dropna(inplace=True)
     df3 = df2.groupby('sector').apply(sum)
     df3.reset_index(inplace=True)
-    df3.rename({'sector':'SECTORS','iexptotal':'R&D EXPENDITURE(BILLION NAIRA)'},axis =1,inplace=True)
+    df3.rename({'sector':'SECTORS','iexptotal':'R&D EXPENDITURE (BILLION NAIRA)'},axis =1,inplace=True)
     st.table(df3)
     
-    fig = px.scatter(df3, x = 'SECTORS',y = 'R&D EXPENDITURE(BILLION NAIRA)',size = 'R&D EXPENDITURE(BILLION NAIRA)',hover_name = 'SECTORS', size_max= 120,color='SECTORS',labels={'x':'SECTORS','y':'R&D EXPENDITURE(BILLION NAIRA)'})
+    fig = px.scatter(df3, x = 'SECTORS',y = 'R&D EXPENDITURE (BILLION NAIRA)',size = 'R&D EXPENDITURE (BILLION NAIRA)',hover_name = 'SECTORS', size_max= 120,color='SECTORS',labels={'x':'SECTORS','y':'R&D EXPENDITURE(BILLION NAIRA)'})
     fig.update_layout(height = 700,width =1000,paper_bgcolor="#202A44",)
     fig.show()
     
