@@ -35,7 +35,8 @@ def fun():
     df00.iloc[81:84,0] = 'Limitation Of S&T Public Policies'
     st.table(df00)
     fig = px.line(df00,x='OUTCOME',y ='RESPONSE',color ='FACTORS AFFECTING')
-    fig.update_layout(width =1000,height=600)
+    fig.update_traces(hovertemplate =None)
+    fig.update_layout(width =1000,height=600,hovermode ='x unified')
     st.plotly_chart(fig)
     fig = px.scatter(df00,x='OUTCOME',y='RESPONSE',size='RESPONSE', color='OUTCOME',hover_name='FACTORS AFFECTING',size_max=100,animation_frame='FACTORS AFFECTING')
     fig.update_traces(hovertemplate =None)
