@@ -21,7 +21,9 @@ def fun():
     df01.iloc[29:32,0] = 'Others'
     st.table(df01)
     fig = px.scatter(df01,x='OUTCOME',y='RESPONSE',size='RESPONSE', color='OUTCOME',hover_name='GOVT SUPPORT POLICY',size_max=100,animation_frame='GOVT SUPPORT POLICY')
-    fig.update_layout(width =1000,height=600)
+    fig.update_traces(hovertemplate =None)
+    fig.update_layout(width =1000,height=600,hovermode ='x unified',hoverlabel = dict(bgcolor = 'black',font_size =16,font_family = 'Rockwell'))
+    fig.update_layout(legend= dict(title_font_family = 'Rockwell',font_size =16))
     st.plotly_chart(fig)
     
 
