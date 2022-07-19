@@ -16,9 +16,9 @@ def fun():
     st.table(df3)
     
     fig = px.scatter(df3, x = 'SECTORS',y = 'R&D EXPENDITURE (BILLION NAIRA)',size = 'R&D EXPENDITURE (BILLION NAIRA)',hover_name = 'SECTORS', size_max= 120,color='SECTORS',labels={'x':'SECTORS','y':'R&D EXPENDITURE(BILLION NAIRA)'})
-    fig.update_layout(height = 700,width =1000,paper_bgcolor="#202A44",)
-    fig.show()
-    
+    fig.update_traces(hovertemplate =None)
+    fig.update_layout(width =1000,height=600,hovermode ='x unified',hoverlabel = dict(bgcolor = 'black',font_size =16,font_family = 'Rockwell'))
+    fig.update_layout(legend= dict(title_font_family = 'Rockwell',font_size =16))
     st.plotly_chart(fig)
 
 
