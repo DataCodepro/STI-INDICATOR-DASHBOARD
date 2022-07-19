@@ -17,7 +17,7 @@ def fun():
     df = waves.groupby('sector').apply(sum)
     df.drop(['sector','year'],axis =1,inplace=True)
     df.reset_index(inplace=True)
-    df.rename({'turnover050607':'TURNOVER', 'RDSTAFF':'R&DSTAFF'})
+    df.rename({'turnover050607':'TURNOVER', 'RDSTAFF':'R&DSTAFF'},axis =1,inplace=True)
     st.table(df)
     fig = px.scatter(df, y="TURNOVER", x="R&DSTAFF",size="TURNOVER", color="sector",size_max=150)
     fig.update_layout(width=1000,height=500, paper_bgcolor="#202A44")
