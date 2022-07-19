@@ -115,7 +115,7 @@ def run():
         df01.iloc[29:32,0] = 'Others'
         fig = px.scatter(df01,x='OUTCOME',y='RESPONSE',size='RESPONSE', color='OUTCOME',hover_name='GOVT SUPPORT POLICY',size_max=100,animation_frame='GOVT SUPPORT POLICY',title = 'EFFECTS OF GOVERNMENT SUPPORT ON INNOVATION')
         fig.update_traces(hovertemplate =None)
-        fig.update_layout(width =800,height=800,hovermode ='x unified',hoverlabel = dict(bgcolor = 'black',font_size =16,font_family = 'Rockwel'),showlegend =False)
+        fig.update_layout(width =700,height=600,hovermode ='x unified',hoverlabel = dict(bgcolor = 'black',font_size =16,font_family = 'Rockwel'),showlegend =False)
         fig.update_layout(legend= dict(title_font_family = 'Rockwell',font_size =16))
         st.plotly_chart(fig)
         
@@ -148,7 +148,7 @@ def run():
         df.drop(['sector','year'],axis =1,inplace=True)
         df.reset_index(inplace=True)
         df.rename({'turnover050607':'TURNOVER (TRILLION NAIRA)','RDSTAFF':'R&DSTAFF'})
-        fig = px.scatter(df, y="TURNOVER (TRILLION NAIRA)	", x="RDSTAFF",size="TURNOVER (TRILLION NAIRA)	", color="sector",size_max=150,title='THE EFFECT OF R&D STAFF ON TURNOVER')
+        fig = px.scatter(df, y="TURNOVER (TRILLION NAIRA)", x="R&DSTAFF",size="TURNOVER (TRILLION NAIRA)", color="sector",size_max=150,title='THE EFFECT OF R&D STAFF ON TURNOVER')
         fig.update_traces(hovertemplate =None)
         fig.update_layout(width =800,height=800,hovermode ='x unified',hoverlabel = dict(bgcolor = 'black',font_size =16,font_family = 'Rockwel'),showlegend =False)
         fig.update_layout(legend= dict(title_font_family = 'Rockwell',font_size =16))
