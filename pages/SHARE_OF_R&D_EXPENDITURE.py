@@ -33,5 +33,5 @@ def fun():
             
             
 st.set_page_config(page_title="R&D SPENDING2", page_icon="📈")
-st.header("SHARE OF R&D EXPENDITURE BY BUSINESS SECTOR")
+st.header("SHARE(PERCENTAGE) OF R&D EXPENDITURE BY BUSINESS SECTOR")
 fun()   
