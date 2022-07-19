@@ -147,7 +147,7 @@ def run():
         df = waves.groupby('sector').apply(sum)
         df.drop(['sector','year'],axis =1,inplace=True)
         df.reset_index(inplace=True)
-        df.rename({'turnover050607':'TURNOVER (TRILLION NAIRA)','RDSTAFF':'R&DSTAFF'})
+        df.rename({'turnover050607':'TURNOVER (TRILLION NAIRA)','RDSTAFF':'R&DSTAFF'},axis =1,inplace =True)
         fig = px.scatter(df, y="TURNOVER (TRILLION NAIRA)", x="R&DSTAFF",size="TURNOVER (TRILLION NAIRA)", color="sector",size_max=150,title='THE EFFECT OF R&D STAFF ON TURNOVER')
         fig.update_traces(hovertemplate =None)
         fig.update_layout(width =800,height=800,hovermode ='x unified',hoverlabel = dict(bgcolor = 'black',font_size =16,font_family = 'Rockwel'),showlegend =False)
