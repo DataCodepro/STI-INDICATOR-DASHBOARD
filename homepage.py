@@ -152,6 +152,7 @@ def run():
         fig.update_traces(hovertemplate =None)
         fig.update_layout(width =800,height=800,hovermode ='x unified',hoverlabel = dict(bgcolor = 'black',font_size =16,font_family = 'Rockwel'),showlegend =False)
         fig.update_layout(legend= dict(title_font_family = 'Rockwell',font_size =16))
+        st.ploty(fig)
     with col6:
         df02 = pd.read_excel("output tables.xlsx",sheet_name = 'Sheet5')
         df02.iloc[1:4,0] = 'Internal'
