@@ -129,12 +129,12 @@ def run():
             
             
             # Use `hole` to create a donut-like pie chart
-        fig = go.Figure(data=[go.Pie(labels=df3['SERVICE'], values=df3['R&D EXPENDITURE'], hole=.6,name="R&D EXPENDITURE")])
+        fig = go.Figure(data=[go.Pie(labels=df3['SERVICE'], values=df3['R&D EXPENDITURE'], hole=.6,name="R&D EXPENDITURE(PERCENTAGE)")])
         fig.update_traces(hole=.6, hoverinfo="label+percent+name")
 
         fig.update_layout(
                 # Add annotations in the center of the donut pies.
-                annotations=[dict(text='R&D EXPENDITURE',  font_size=10, showarrow=False)],height = 500,width =500,paper_bgcolor="#202A44",title = 'SHARE OF R&D EXPENDITURE BY BUSINESS SECTOR')
+                annotations=[dict(text='R&D EXPENDITURE',  font_size=10, showarrow=False)],height = 500,width =500,paper_bgcolor="#202A44",title = 'SHARE() OF R&D EXPENDITURE BY BUSINESS SECTOR')
 
             
         st.plotly_chart(fig)
