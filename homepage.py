@@ -165,7 +165,7 @@ def run():
         df02.iloc[29:32,0] = 'Conferences, fairs, exhibitions'
         df02.iloc[33:36,0] = 'Journals, trade publications'
         df02.iloc[36:40,0] = 'Professional, industry associations'
-        fig = px.line(df02,x='OUTCOME',y ='RESPONSE',color ='INFO SOURCE',title = 'IMPORTANCE OF INFORMATION SOURCES TO INNOVATION')
+        fig = px.scatter(df02,x='OUTCOME',y='RESPONSE',size='RESPONSE', color='OUTCOME',hover_name='INFO SOURCE',size_max=100,animation_frame='INFO SOURCE')
         fig.update_traces(hovertemplate =None)
         fig.update_layout(width =800,height=800,hovermode ='x unified',hoverlabel = dict(bgcolor = 'black',font_size =16,font_family = 'Rockwel'),showlegend =False)
         fig.update_layout(legend= dict(title_font_family = 'Rockwell',font_size =16))
